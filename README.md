@@ -22,7 +22,7 @@ It will execute two Helmsman DSF files - one for bee-bootnode, another for bee.
 
 Both Helmsman DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace.
 
-**Note:** Everyone should update name of the namespace to avoid overlapping with other people if working on the same Kubernetes cluster. 
+**Note:** Everyone should update name of the namespace to avoid overlapping with others if working on the same Kubernetes cluster. 
 
 **Note:** [Helm values](https://github.com/ethersphere/bee-staging/tree/master/helm-values) are defaults used by the Swarm team, but everyone should use setup up to its own needs.
 
