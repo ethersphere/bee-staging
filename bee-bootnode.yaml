@@ -1,0 +1,24 @@
+context: bee-bootnode
+
+namespaces:
+  $NAMESPACE:
+    protected: false
+
+helmRepos:
+  ethersphere: "https://ethersphere.github.io/helm"
+
+apps:
+  bee-bootnode:
+    name: bee-bootnode
+    namespace: $NAMESPACE
+    description: "Bee bootnode"
+    chart: "ethersphere/bee"
+    version: "0.2.3"
+    enabled: true
+    valuesFiles:
+      - "helm-values/bee-bootnode.yaml"
+    set:
+      ingress.hosts[0].domain: "$NAMESPACE.core.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.core.internal"
+    wait: true
+    timeout: 900

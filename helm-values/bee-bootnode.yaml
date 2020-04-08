@@ -1,0 +1,36 @@
+nameOverride: bee-bootnode
+
+serviceAccount:
+  create: true
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx-internal
+  hosts:
+    - domain: core.internal
+      paths:
+        - /
+
+ingressDebug:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx-internal
+  hosts:
+    - domain: core.internal
+      paths:
+        - /
+
+resources:
+  limits:
+    memory: 2Gi
+    cpu: 1.5
+  requests:
+    memory: 1Gi
+    cpu: 0.75
+
+nodeSelector:
+  node-group: bee-staging
+
+beeConfig:
+  enable_debug_api: true

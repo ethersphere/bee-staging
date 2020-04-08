@@ -1,0 +1,17 @@
+.DS_Store
+*.retry
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+# *.tfvars
+
+terraform-modules/
+**/route53-secrets.yaml
+**/.helmsman-tmp/
+charts/bee
