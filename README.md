@@ -18,7 +18,7 @@ To install Bee cluster that consits of Bee bootnode and multiple Bee nodes execu
 $ NAMESPACE=bee ./install.sh 
 ```
 
-It will execute two Helmsman DSF files, one for bee-bootnode, one for bee.
+It will execute two Helmsman DSF files - one for bee-bootnode, another for bee.
 
 Both DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace. Everyone should update name of the namespace to avoid overlapping with other people if working on the same Kubernetes cluster. 
 
