@@ -2,7 +2,7 @@
 
 This repository contains all the definitions for the Bee staging releases used by the Swarm Team.
 
-We're using [helmsman](https://github.com/Praqma/helmsman) to manage the deployments to our kubernetes cluster. You can learn more about helmsman's [desired state specification](https://github.com/Praqma/helmsman/blob/master/docs/desired_state_specification.md).
+We're using [helmsman](https://github.com/Praqma/helmsman) to manage the deployments to our Kubernetes cluster. You can learn more about Helmsman's [desired state specification](https://github.com/Praqma/helmsman/blob/master/docs/desired_state_specification.md).
 
 ## Prerequisites
 
@@ -20,7 +20,9 @@ $ NAMESPACE=bee ./install.sh
 
 It will execute two Helmsman DSF files - one for bee-bootnode, another for bee.
 
-Both DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace. Everyone should update name of the namespace to avoid overlapping with other people if working on the same Kubernetes cluster. 
+Both Helmsman DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace.
+
+**Note:** Everyone should update name of the namespace to avoid overlapping with other people if working on the same Kubernetes cluster. 
 
 **Note:** [Helm values](https://github.com/ethersphere/bee-staging/tree/master/helm-values) are defaults used by the Swarm team, but everyone should use setup up to its own needs.
 
