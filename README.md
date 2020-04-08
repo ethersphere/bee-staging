@@ -20,9 +20,9 @@ $ NAMESPACE=bee ./install.sh
 
 It will execute two Helmsman DSF files, one for bee-bootnode, one for bee.
 
-Both DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace.
+Both DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace. Everyone should update name of the namespace to avoid overlapping with other people if working on the same Kubernetes cluster. 
 
-[Helm values](https://github.com/ethersphere/bee-staging/tree/master/helm-values) are defaults used by the Swarm team, but everyone should setup those up to its own needs.
+**Note:** [Helm values](https://github.com/ethersphere/bee-staging/tree/master/helm-values) are defaults used by the Swarm team, but everyone should use setup up to its own needs.
 
 ## Uninstalling
 
