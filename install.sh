@@ -15,7 +15,7 @@ echo BOOTNODE_FQDN=$BOOTNODE_FQDN
 
 echo "RETREIVING BOOTNODE's MULTIADDRESS"
 sleep 3
-multiaddresses=$(curl -s "http://$BOOTNODE_FQDN/addresses" | jq '.addresses')
+multiaddresses=$(curl -s "http://$BOOTNODE_FQDN/addresses" | jq '.underlay')
 for ma in $multiaddresses
 do
     multiaddress=$(grep -Eo '\/ip4\/(192\.168|10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.).*\/tcp\/7070\/p2p\/[a-zA-Z0-9]*' <<< $ma) || true
