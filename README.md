@@ -48,7 +48,7 @@ image:
 replicaCount: 2
 ```
 
-See Bee Helm chart's [value.yaml](https://github.com/ethersphere/helm/blob/master/charts/bee/values.yaml) file for all available options.
+See Bee Helm chart's [values.yaml](https://github.com/ethersphere/helm/blob/master/charts/bee/values.yaml) file for all available options.
 
 ## Uninstalling
 
