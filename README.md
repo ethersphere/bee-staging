@@ -26,6 +26,30 @@ Both Helmsman DSF files use official [Bee Helm Chart](https://github.com/ethersp
 
 **Note:** [Helm values](https://github.com/ethersphere/bee-staging/tree/master/helm-values) are defaults used by the Swarm team, but everyone should use setup up to its own needs.
 
+## Configuration
+
+Configuration parameters can be set in 2 ways:
+* in the Helmsman DSF file, with the field **set**
+```bash
+apps:
+  bee:
+    set:
+      image.repository: ethersphere/bee
+      image.tag: latest
+      replicaCount: 2
+```
+
+* in the Helm values file
+```bash
+image:
+  repository: ethersphere/bee
+  tag: latest
+
+replicaCount: 2
+```
+
+See Bee Helm chart's [value.yaml](https://github.com/ethersphere/helm/blob/master/charts/bee/values.yaml) file for all available options.
+
 ## Uninstalling
 
 To uninstall previously deployed Bee cluster execute following command:
