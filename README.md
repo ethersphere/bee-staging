@@ -9,6 +9,7 @@ We're using [helmsman](https://github.com/Praqma/helmsman) to manage the deploym
 * Kubernetes 1.15
 * Helm 3.0
 * Helmsman 3.0
+* Helm diff (>=1.6.0)
 
 ## Installing
 
