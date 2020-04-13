@@ -10,6 +10,7 @@ We're using [helmsman](https://github.com/Praqma/helmsman) to manage the deploym
 * Helm 3.0
 * Helmsman 3.0
 * Helm diff (>=1.6.0) [.](https://github.com/databus23/helm-diff)
+* jq (expected that binary is named `jq`, not `jq-linux` etc) [.](https://github.com/stedolan/jq)
 
 ## Installing
 
