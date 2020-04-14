@@ -3,7 +3,7 @@ nameOverride: bee-bootnode
 image:
   repository: ethersphere/bee
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 serviceAccount:
   create: true
