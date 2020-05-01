@@ -13,14 +13,14 @@ apps:
     namespace: $NAMESPACE
     description: "Bee"
     chart: "ethersphere/bee"
-    version: "0.2.4"
+    version: "0.3.0"
     enabled: true
     valuesFiles:
       - "helm-values/bee.yaml"
     set:
-      beeConfig.bootnode: "$BEE_CONFIG_BOOTNODE"
       ingress.hosts[0].domain: "$NAMESPACE.core.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.core.internal"
-      replicaCount: 2
+      replicaCount: 3
+      bootnode.enabled: true
     wait: true
     timeout: 900
