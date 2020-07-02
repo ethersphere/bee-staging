@@ -13,7 +13,7 @@ apps:
     namespace: $NAMESPACE
     description: "Bee"
     chart: "ethersphere/bee"
-    version: "0.4.1"
+    version: "0.5.1"
     enabled: true
     valuesFiles:
       - "helm-values/bee.yaml"

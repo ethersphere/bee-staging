@@ -40,7 +40,7 @@ nodeSelector:
   node-group: bee-staging
 
 beeConfig:
-  enable_debug_api: true
+  debug_api_enable: true
 
 libp2pSettings:
   libp2pKeys:
