@@ -41,6 +41,8 @@ nodeSelector:
 
 beeConfig:
   debug_api_enable: true
+  tracing_enable: true
+  tracing_endpoint: jaeger-operator-jaeger-agent.observability:6831
 
 libp2pSettings:
   libp2pKeys:
