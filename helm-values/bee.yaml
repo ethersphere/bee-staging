@@ -14,6 +14,15 @@ ingress:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx-internal
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/affinity-mode: "persistent"
+    nginx.ingress.kubernetes.io/session-cookie-name: "SWARMGATEWAY"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "86400" # 30 minutes
+    nginx.ingress.kubernetes.io/session-cookie-path: "default"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
     - domain: staging.internal
       paths:
