@@ -58,7 +58,7 @@ beeConfig:
   tracing_enable: true
   tracing_endpoint: jaeger-operator-jaeger-agent.observability:6831
   swap_factory_address: 0x657241f4494a2f15ba75346e691d753a978c72df
-  swap_initial_deposit: 1000000000000000000
+  swap_initial_deposit: 500000000000000000
   swap_enable: false
   verbosity: 5
 
