@@ -23,7 +23,7 @@ apps:
     namespace: $NAMESPACE
     description: "Bee"
     chart: "ethersphere/bee"
-    version: "0.6.7"
+    version: "0.9.1"
     enabled: true
     priority: 0
     valuesFiles:
