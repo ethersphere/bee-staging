@@ -60,6 +60,7 @@ beeConfig:
   swap_factory_address: 0x657241f4494a2f15ba75346e691d753a978c72df
   swap_initial_deposit: 500000000000000000
   swap_enable: false
+  block_time: 1
   verbosity: 5
 
 

@@ -23,7 +23,7 @@ apps:
     namespace: $NAMESPACE
     description: "Bee"
     chart: "ethersphere/bee"
-    version: "0.9.1"
+    version: "0.9.2"
     enabled: true
     priority: 0
     valuesFiles:
@@ -33,6 +33,7 @@ apps:
       ingressDebug.hosts[0].domain: "$NAMESPACE.staging.internal"
       replicaCount: 3
       beeConfig.verbosity: 5
+      beeConfig.full_node: true
       beeConfig.swap_enable: true
       beeConfig.swap_endpoint: ws://geth-geth-swap.$NAMESPACE:8546
       beeConfig.bootnode: "/dns4/bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
