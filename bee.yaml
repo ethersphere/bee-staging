@@ -11,7 +11,7 @@ apps:
   geth:
     name: geth
     namespace: $NAMESPACE
-    version: "0.1.15"
+    version: "0.1.16"
     chart: "ethersphere/geth-swap"
     description: "Geth"
     priority: -10
