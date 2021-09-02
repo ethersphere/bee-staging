@@ -1,6 +1,6 @@
 image:
-  repository: svetomir/beekeeper
-  tag: sim10
+  repository: ethersphere/beekeeper
+  tag: 0.8.3
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -17,7 +17,7 @@ serviceAccount:
   createClusterRole: true
 
 nodeSelector:
-  node-group: staging
+  node-group: private
 
 ## If it is enabled it will create init container that will wait
 ## for cluster to be up and operational
@@ -32,5 +32,6 @@ execute:
   concurrencyPolicy: Forbid
 
 config:
-  command: ["beekeeper", "simulate", "--simulations=retrieval", "--cluster-name=pro-verify-independent", "--metrics-pusher-address=pushgateway-prometheus-pushgateway.monitoring:9091", "--timeout=1h"]
+  command: ["beekeeper", "check"]
+  # command: ["beekeeper", "simulate", "--simulations=retrieval", "--cluster-name=pro-verify-independent", "--metrics-pusher-address=pushgateway-prometheus-pushgateway.monitoring:9091", "--timeout=1h"]
   # command: ["bash", "-c", "sleep 900"]

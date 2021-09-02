@@ -1,0 +1,20 @@
+context: beekeeper
+
+namespaces:
+  $NAMESPACE:
+    protected: false
+
+helmRepos:
+  ethersphere: "https://ethersphere.github.io/helm"
+
+apps:
+  beekeeper:
+    name: beekeeper
+    namespace: $NAMESPACE
+    version: "0.3.3"
+    chart: "ethersphere/beekeeper"
+    description: "Beekeeper"
+    priority: -10
+    enabled: true
+    valuesFiles:
+      - "helm-values/beekeeper.yaml"
