@@ -35,10 +35,20 @@ apps:
       beeConfig.verbosity: 5
       beeConfig.full_node: true
       beeConfig.swap_enable: true
-      beeConfig.swap_endpoint: ws://geth-geth-swap.$NAMESPACE:8546
+      beeConfig.swap_endpoint: ws://ethproxy:8546
       beeConfig.bootnode: "/dns4/bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
       beeConfig.postage_stamp_address: 0x538e6de1d876bbcd5667085257bc92f7c808a0f3
       beeConfig.price_oracle_address: 0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2
       libp2pSettings.enabled: true
     wait: true
     timeout: 900
+  ethproxy:
+    name: ethproxy
+    namespace: $NAMESPACE
+    version: "0.1.1"
+    chart: "ethersphere/ethproxy"
+    description: "ethproxy"
+    priority: -10
+    enabled: true
+    valuesFiles:
+      - "helm-values/ethproxy.yaml"
