@@ -52,3 +52,5 @@ apps:
     enabled: true
     valuesFiles:
       - "helm-values/ethproxy.yaml"
+    set:
+      config.PROXY_BACKEND_ENDPOINT: ws://geth-geth-swap.$NAMESPACE:8546

@@ -21,5 +21,4 @@ ingress:
 config:
   PROXY_WS_PORT: "6000"
   PROXY_API_PORT: "6100"
-  PROXY_BACKEND_ENDPOINT: "ws://geth-swap:8546"
   PROXY_LOG_LEVEL: "info"
