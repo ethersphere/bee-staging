@@ -15,10 +15,6 @@ nodeSelector:
 ingress:
   enabled: true
   class: nginx-internal
-  hosts:
-    - host: ethproxy.elad.staging.internal
-      paths:
-          - /
 
 config:
   PROXY_WS_PORT: "6000"

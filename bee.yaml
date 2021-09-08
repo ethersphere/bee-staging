@@ -56,3 +56,5 @@ apps:
       - "helm-values/ethproxy.yaml"
     set:
       config.PROXY_BACKEND_ENDPOINT: ws://geth-geth-swap.$NAMESPACE:8546
+      ingress.hosts[0].host: ethproxy.$NAMESPACE.staging.internal
+      ingress.hosts[0].paths[0]: /
