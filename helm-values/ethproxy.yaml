@@ -1,0 +1,22 @@
+imagePullSecrets:
+  - name: regcred
+
+image:
+  repository: ethersphere/ethproxy
+  tag: latest
+  pullPolicy: Always
+
+serviceAccount:
+  create: true
+
+nodeSelector:
+  node-group: private
+
+ingress:
+  enabled: true
+  class: nginx-internal
+
+config:
+  PROXY_WS_PORT: "6000"
+  PROXY_API_PORT: "6100"
+  PROXY_LOG_LEVEL: "info"

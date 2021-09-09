@@ -51,7 +51,7 @@ imagePullSecrets:
   - name: regcred
 
 nodeSelector:
-  node-group: bee-staging
+  node-group: private
 
 beeConfig:
   debug_api_enable: true
