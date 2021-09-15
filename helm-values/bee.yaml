@@ -1,6 +1,6 @@
 image:
-  repository: ethersphere/bee
-  tag: latest
+  repository: stolen/bee
+  tag: chainsync-noblock
   pullPolicy: Always
 
 serviceAccount:
