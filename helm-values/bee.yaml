@@ -1,5 +1,5 @@
 image:
-  repository: ethersphere/bee
+  repository: gcr.io/esad-bee/esadakar/bee
   tag: latest
   pullPolicy: Always
 

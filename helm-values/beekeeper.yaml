@@ -32,6 +32,6 @@ execute:
   concurrencyPolicy: Forbid
 
 config:
-  command: ["beekeeper", "check"]
+  command: ["beekeeper", "check", "--checks=pushsync-chunks"]
   # command: ["beekeeper", "simulate", "--simulations=retrieval", "--cluster-name=pro-verify-independent", "--metrics-pusher-address=pushgateway-prometheus-pushgateway.monitoring:9091", "--timeout=1h"]
   # command: ["bash", "-c", "sleep 900"]
