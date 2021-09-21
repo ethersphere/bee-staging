@@ -10,7 +10,7 @@ helmRepos:
 apps:
   beekeeper:
     name: beekeeper
-    namespace: $NAMESPACE
+    namespace: "$NAMESPACE"
     version: "0.3.3"
     chart: "ethersphere/beekeeper"
     description: "Beekeeper"
@@ -18,3 +18,5 @@ apps:
     enabled: true
     valuesFiles:
       - "helm-values/beekeeper.yaml"
+    set:
+      fullnameOverride: "beekeeper-$NAMESPACE"
