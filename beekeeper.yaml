@@ -19,4 +19,4 @@ apps:
     valuesFiles:
       - "helm-values/beekeeper.yaml"
     set:
-      fullnameOverride: "beekeeper-$NAMESPACE"
+      fullnameOverride: "beekeeper-$NAMESPACE-cron"

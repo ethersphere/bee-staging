@@ -1,6 +1,6 @@
 image:
-  repository: ethersphere/beekeeper
-  tag: 0.8.3
+  repository: stolen/beekeeper
+  tag: beekeeper-smoke
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
@@ -32,6 +32,6 @@ execute:
   concurrencyPolicy: Forbid
 
 config:
-  command: ["beekeeper", "check", "--checks=retrieval"]
+  command: ["beekeeper", "check", "--cluster-name=mainnet", "--checks=pushsync-chunks" ,"--create-cluster=false" ,"--metrics-pusher-address=pushgateway.mainnet.internal"]
   # command: ["beekeeper", "simulate", "--simulations=retrieval", "--cluster-name=pro-verify-independent", "--metrics-pusher-address=pushgateway-prometheus-pushgateway.monitoring:9091", "--timeout=1h"]
   # command: ["bash", "-c", "sleep 900"]
