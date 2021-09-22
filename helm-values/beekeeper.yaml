@@ -17,7 +17,7 @@ serviceAccount:
   createClusterRole: true
 
 nodeSelector:
-  node-group: private
+  node-group: public-xl-gateway
 
 ## If it is enabled it will create init container that will wait
 ## for cluster to be up and operational
