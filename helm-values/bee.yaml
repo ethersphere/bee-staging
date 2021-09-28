@@ -63,6 +63,7 @@ beeConfig:
   swap_enable: false
   block_time: 1
   verbosity: 5
+  allow_private_cidrs: true
 
 
 
