@@ -1,6 +1,6 @@
 image:
   repository: stolen/beekeeper
-  tag: beekeeper-smoke
+  tag: prodsmoke-4
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
