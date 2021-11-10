@@ -1,6 +1,6 @@
 image:
   repository: gcr.io/esad-bee/esadakar/bee
-  tag: bucket
+  tag: latest
   pullPolicy: Always
 
 serviceAccount:
