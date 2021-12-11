@@ -1,7 +1,7 @@
 image:
   repository: gcr.io/esad-bee/esadakar/beekeeper
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 imagePullSecrets:
   - name: regcred
