@@ -5,18 +5,18 @@ namespaces:
     protected: false
 
 helmRepos:
-  ethersphere: "https://ethersphere.github.io/helm"
+  ethersphere: 'https://ethersphere.github.io/helm'
 
 apps:
   beekeeper:
     name: beekeeper
-    namespace: "$NAMESPACE"
-    version: "0.3.3"
-    chart: "ethersphere/beekeeper"
-    description: "Beekeeper"
+    namespace: '$NAMESPACE'
+    version: '0.4.0'
+    chart: 'ethersphere/beekeeper'
+    description: 'Beekeeper'
     priority: -10
     enabled: true
     valuesFiles:
-      - "helm-values/beekeeper.yaml"
+      - 'helm-values/beekeeper.yaml'
     set:
-      fullnameOverride: "beekeeper-$NAMESPACE"
+      fullnameOverride: 'beekeeper-$NAMESPACE'
