@@ -56,7 +56,7 @@ nodeSelector:
 beeConfig:
   debug_api_enable: true
   tracing_enable: true
-  tracing_endpoint: jaeger-operator-jaeger-agent.observability:6831
+  tracing_endpoint: tempo-tempo-distributed-distributor.observability:6381
   swap_factory_address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
   swap_legacy_factory_addresses: 0x657241f4494a2f15ba75346e691d753a978c72df
   swap_initial_deposit: 500000000000000000
