@@ -23,7 +23,7 @@ apps:
     namespace: $NAMESPACE
     description: "Bee"
     chart: "ethersphere/bee"
-    version: "0.9.2"
+    version: "0.12.2"
     enabled: true
     priority: 0
     valuesFiles:
@@ -40,6 +40,7 @@ apps:
       beeConfig.postage_stamp_address: 0x538e6de1d876bbcd5667085257bc92f7c808a0f3
       beeConfig.price_oracle_address: 0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2
       beeConfig.network_id: 12345
+      beeConfig.mainnet: false
       beeConfig.payment_threshold: 108000000
       libp2pSettings.enabled: true
     wait: true
