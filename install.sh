@@ -9,4 +9,4 @@ if [[ -z $NAMESPACE ]]; then
 fi
 
 echo "INSTALLING BEE NODES"
-helmsman -apply -f bee.yaml
+helmsman -apply -subst-env-values -f bee.yaml

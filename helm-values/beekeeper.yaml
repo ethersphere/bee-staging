@@ -1,6 +1,6 @@
 image:
   repository: ethersphere/beekeeper
-  tag: 0.8.3
+  tag: 0.13.9
   pullPolicy: IfNotPresent
 
 imagePullSecrets:
