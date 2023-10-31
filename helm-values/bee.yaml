@@ -1,6 +1,6 @@
 image:
-  repository: ethersphere/bee
-  tag: latest
+  repository: gcr.io/esad-bee/esadakar/bee
+  tag: quic-v2
   pullPolicy: Always
 
 serviceAccount:
@@ -60,7 +60,7 @@ nodeSelector:
 
 beeConfig:
   api-addr: ":1633"
-  block-time: 1
+  block-time: 5
   bootnode-mode: false
   cache-capacity: 20000
   data-dir: "/home/bee/.bee"
@@ -71,6 +71,8 @@ beeConfig:
   debug-api-addr: ":1635"
   debug-api-enable: true
   mainnet: false
+  full-node: true
+  swap-enable: true
   nat-addr: ""
   network-id: 12345
   p2p-addr: ":1634"
@@ -78,7 +80,6 @@ beeConfig:
   payment-early-percent: 50
   payment-threshold: 13500000
   payment-tolerance-percent: 25
-  storage-incentives-enable: true
   postage-stamp-start-block: 1
   postage-stamp-address: "0x538e6de1d876bbcd5667085257bc92f7c808a0f3"
   price-oracle-address: "0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2"
@@ -89,7 +90,6 @@ beeConfig:
   token-encryption-key: ""
   admin-password: ""
   chequebook-enable: true
-  swap-enable: true
   swap-factory-address: "0x09ad42a7d020244920309ffa14ea376dd2d3b7d5"
   swap-legacy-factory-addresses: "0x657241f4494a2f15ba75346e691d753a978c72df"
   swap-initial-deposit: 500000000000000000
