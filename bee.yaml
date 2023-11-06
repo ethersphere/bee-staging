@@ -34,7 +34,7 @@ apps:
       ingressDebug.hosts[0].domain: "$NAMESPACE.staging.internal"
       replicaCount: 3
       beeConfig.blockchain-rpc-endpoint: ws://ethproxy.$NAMESPACE:8546
-      beeConfig.bootnode: "/dns4/bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+      beeConfig.bootnode: "[/dns4/bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb, /dns4/bee-0-headless.$NAMESPACE.svc.cluster.local/udp/1634/quic-v1/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb]"
       libp2pSettings.enabled: true
     wait: false
   ethproxy:
