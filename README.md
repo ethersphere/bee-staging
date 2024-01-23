@@ -17,12 +17,17 @@ We're using [helmsman](https://github.com/Praqma/helmsman) to manage the deploym
 To install Bee cluster that consits of Bee bootnode and multiple Bee nodes execute following command:
 
 ```bash
-$ NAMESPACE=bee ./install.sh 
+$ NAMESPACE=test ./install.sh 
 ```
 
-It will execute two Helmsman DSF files - one for bee-bootnode, another for bee.
+You can also specify different repo and tag with
+```bash
+$ NAMESPACE=test REPO=myrepo/bee TAG=mytag ./install.sh 
+```
 
-Both Helmsman DSF files use official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and both are deployed in the same Kubernetes namespace.
+It will execute bee.yaml Helmsman DSF file.
+
+Helmsman DSF file uses official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and it's deployed into specified Kubernetes namespace.
 
 **Note:** Everyone should update name of the namespace to avoid overlapping with others if working on the same Kubernetes cluster. 
 
@@ -57,5 +62,5 @@ See Bee Helm chart's [values.yaml](https://github.com/ethersphere/helm/blob/mast
 To uninstall previously deployed Bee cluster execute following command:
 
 ```bash
-$ NAMESPACE=bee ./uninstall.sh 
+$ NAMESPACE=test ./uninstall.sh 
 ```

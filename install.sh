@@ -8,5 +8,8 @@ if [[ -z $NAMESPACE ]]; then
     exit 1
 fi
 
+export REPO="${REPO:-ethersphere/bee}"
+export TAG="${TAG:-latest}"
+
 echo "INSTALLING BEE NODES"
 helmsman -apply -subst-env-values -f bee.yaml

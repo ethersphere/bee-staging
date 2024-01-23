@@ -15,8 +15,13 @@ nodeSelector:
 ingress:
   enabled: true
   class: nginx-internal
+  hosts:
+    - host: ethproxy.$NAMESPACE.testnet.internal
+      paths:
+        - /
 
 config:
+  PROXY_BACKEND_ENDPOINT: "ws://geth-geth-swap.$NAMESPACE:8546"
   PROXY_WS_PORT: "6000"
   PROXY_API_PORT: "6100"
   PROXY_LOG_LEVEL: "info"

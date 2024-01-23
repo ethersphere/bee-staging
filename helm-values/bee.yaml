@@ -1,12 +1,15 @@
 image:
-  repository: ethersphere/bee
-  tag: latest
+  repository: "$REPO"
+  tag: "$TAG"
   pullPolicy: Always
 
 serviceAccount:
   create: true
 
 podManagementPolicy: Parallel
+
+updateStrategy:
+  type: RollingUpdate
 
 securityContext:
   allowPrivilegeEscalation: false
@@ -17,16 +20,10 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx-internal
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/affinity: "cookie"
-    nginx.ingress.kubernetes.io/affinity-mode: "persistent"
-    nginx.ingress.kubernetes.io/session-cookie-name: "SWARMGATEWAY"
-    nginx.ingress.kubernetes.io/session-cookie-max-age: "86400" # 30 minutes
-    nginx.ingress.kubernetes.io/session-cookie-path: "default"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
-    - domain: staging.internal
+    - domain: testnet.internal
       paths:
         - /
 
@@ -34,8 +31,11 @@ ingressDebug:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx-internal
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
-    - domain: staging.internal
+    - domain: testnet.internal
       paths:
         - /
 
@@ -59,55 +59,37 @@ nodeSelector:
   node-group: private
 
 beeConfig:
-  api-addr: ":1633"
+  allow-private-cidrs: true
   block-time: 1
-  bootnode-mode: false
-  cache-capacity: 20000
-  data-dir: "/home/bee/.bee"
-  db-open-files-limit: 200
-  db-block-cache-capacity: 33554432
-  db-write-buffer-size: 33554432
-  db-disable-seeks-compaction: false
-  debug-api-addr: ":1635"
+  cache-capacity: 25000
   debug-api-enable: true
   mainnet: false
-  nat-addr: ""
   network-id: 12345
-  p2p-addr: ":1634"
-  p2p-ws-enable: false
-  payment-early-percent: 50
-  payment-threshold: 13500000
-  payment-tolerance-percent: 25
-  storage-incentives-enable: true
+  payment-threshold: 108000000
   postage-stamp-start-block: 1
-  postage-stamp-address: "0x538e6de1d876bbcd5667085257bc92f7c808a0f3"
-  price-oracle-address: "0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2"
-  staking-address: "0xc0332d319b73cfeed89511fe1a83add141bd6f12"
-  redistribution-address: "0x56e442f99cafd7c890c404c1f8c16d38a569e41a"
-  resolver-options: ""
-  restricted: false
-  token-encryption-key: ""
-  admin-password: ""
-  chequebook-enable: true
-  swap-enable: true
-  swap-factory-address: "0x09ad42a7d020244920309ffa14ea376dd2d3b7d5"
-  swap-legacy-factory-addresses: "0x657241f4494a2f15ba75346e691d753a978c72df"
+  postage-stamp-address: 0x538e6de1d876bbcd5667085257bc92f7c808a0f3
+  price-oracle-address: 0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2
+  swap-factory-address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
+  swap-legacy-factory-addresses: 0x657241f4494a2f15ba75346e691d753a978c72df
+  tracing-enable: true
+  tracing-service-name: "bee-staging-$NAMESPACE"
+  tracing-endpoint: "tempo-tempo-distributed-distributor.observability:6831"
   swap-initial-deposit: 500000000000000000
   verbosity: 5
   welcome-message: "Welcome to the Swarm, this is a test cluster running in $NAMESPACE namespace!"
-  warmup-time: 0s
-  allow-private-cidrs: true
 
 password: "beekeeper"
 
 libp2pSettings:
+  enabled: false
   libp2pKeys:
-    bee-0: '{"address":"28678fe31f09f722d53e77ca2395569f19959fa5","crypto":{"cipher":"aes-128-ctr","ciphertext":"0ff319684c4f8decf9c998047febe3417cfc45832b8bb62fd818183d54cf5d0183bfa021ed95addce3b33e83ce7ee73e926f00eea8241d96b349266a4d299829d3d22db0d536315b52b34db4a6778bfd3ce7631ad7256ea0bb9c50abea9de35d740b6fdc50caf929b1d19494690d9ed649105d02c14f5ec49d","cipherparams":{"iv":"4e9a50fb5852b5e61964f696be78066b"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"4d513e81647e4150bb648ed8d2dda28d460802336bf24d620119eac66ae0c0c4"},"mac":"9ae71db96e5ddc1c214538d42082212bbbe53aeac09fcc3e3a8eff815648331e"},"version":3,"id":"ae3bc991-d89f-405a-9e6a-60e27347e22d"}'
+    bootnode-0: '{"address":"28678fe31f09f722d53e77ca2395569f19959fa5","crypto":{"cipher":"aes-128-ctr","ciphertext":"0ff319684c4f8decf9c998047febe3417cfc45832b8bb62fd818183d54cf5d0183bfa021ed95addce3b33e83ce7ee73e926f00eea8241d96b349266a4d299829d3d22db0d536315b52b34db4a6778bfd3ce7631ad7256ea0bb9c50abea9de35d740b6fdc50caf929b1d19494690d9ed649105d02c14f5ec49d","cipherparams":{"iv":"4e9a50fb5852b5e61964f696be78066b"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"4d513e81647e4150bb648ed8d2dda28d460802336bf24d620119eac66ae0c0c4"},"mac":"9ae71db96e5ddc1c214538d42082212bbbe53aeac09fcc3e3a8eff815648331e"},"version":3,"id":"ae3bc991-d89f-405a-9e6a-60e27347e22d"}'
 
 
 swarmSettings:
   enabled: true
   swarmKeys:
+    bootnode-0: '{"address":"7338babe3975595e39b90ffbb097f70a2070a665","crypto":{"cipher":"aes-128-ctr","ciphertext":"1fc935dac27aa66ef27a1881c578ef4afa81d761e3c6babe519da92cde8b7813","cipherparams":{"iv":"f4c348ae224b25a112e9a7c2927c27b5"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"d007a31a0fc410714c896ea278a014ff1d9a2ae58679ac3ecd0297e32320773b"},"mac":"8eadcc06883b79d9668c5bd448a7014bcbe7f09cfe5c8634d7062f0466284cd0"},"version":3}'
     bee-0: '{"address":"5afaed16435fe67d4fcbfcf9b0bcd3463333a356","crypto":{"cipher":"aes-128-ctr","ciphertext":"6bcb28416aa5cc8b59dcc9e16ebc372222690ea3ca4d158ae0d77128ca1eb462","cipherparams":{"iv":"05a317a1cf591045bb61c78d3cc97321"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"bac1e6b3a19b48e52125c0a4de38faede04625d00396663f4e5e164b78dfcaa4"},"mac":"b4022b2c9a7f5b7457e4aa4705b3b65d4f127a1453ede01b5a8a7cf4ed70ceec"},"version":3}'
     bee-1: '{"address":"ccee7cba14f46a7ec390c7426a074a0d278764f1","crypto":{"cipher":"aes-128-ctr","ciphertext":"f2e84fc36b8938b328504c4dc8e7e1a6b811cc56abf2c7d338f88ab06edffa27","cipherparams":{"iv":"8a47da2faef04beab5664b87d91b560a"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"ba542d9ddc29ab2e4fe68e7ef200d11d00608ac43494b18a964ce8423a3ad7e0"},"mac":"4692be67567434f90ca08dc036aebeebc2168b1aa4fab3a268d701d02f195470"},"version":3}'
     bee-2: '{"address":"4348646e8da90390ca9c96f32f650bd386e1e258","crypto":{"cipher":"aes-128-ctr","ciphertext":"de2b9ed0927723da96dcbbf365b861af705ead1aef1cec05a088b07f847847b1","cipherparams":{"iv":"f89bdbb4a0026ea9261eeb71f58e3a18"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"b1b1de6bf7558c20052f69bd7f08486b99f2824bac781bfeda21bde73b31ddc2"},"mac":"919634ea39c0380b7728a6e1ef58bbf44cc70c9addb3c23fa6e80ede280dd88b"},"version":3}'
