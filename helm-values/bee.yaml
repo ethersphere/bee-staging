@@ -11,10 +11,6 @@ podManagementPolicy: Parallel
 updateStrategy:
   type: RollingUpdate
 
-securityContext:
-  allowPrivilegeEscalation: false
-  runAsUser: 0
-
 ingress:
   enabled: true
   annotations:

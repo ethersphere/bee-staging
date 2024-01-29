@@ -62,7 +62,7 @@ apps:
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       beeConfig.blockchain-rpc-endpoint: "http://geth-geth-swap:8545"
-      beeConfig.bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmbjBgy4ZXbjN26oUFwJob8jjkN8jj9DMLueyE6PWuATSN"
+      beeConfig.bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
     wait: false
   ethproxy:
     name: ethproxy

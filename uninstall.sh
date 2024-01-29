@@ -13,4 +13,5 @@ helmsman -destroy -f bee.yaml
 
 echo "DELETING BEE NODE PVCs"
 kubectl delete pvc --selector=app.kubernetes.io/name=bee -n $NAMESPACE
+kubectl delete pvc --selector=app.kubernetes.io/name=bootnode -n $NAMESPACE
 kubectl delete pvc --selector=app.kubernetes.io/name=geth-swap -n $NAMESPACE
