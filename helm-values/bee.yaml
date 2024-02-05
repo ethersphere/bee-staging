@@ -61,6 +61,7 @@ beeConfig:
   debug-api-enable: true
   mainnet: false
   network-id: 12345
+  warmup-time: 1m
   payment-threshold: 108000000
   postage-stamp-start-block: 1
   postage-stamp-address: 0x538e6de1d876bbcd5667085257bc92f7c808a0f3
