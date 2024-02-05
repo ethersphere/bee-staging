@@ -67,6 +67,8 @@ beeConfig:
   price-oracle-address: 0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2
   swap-factory-address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
   swap-legacy-factory-addresses: 0x657241f4494a2f15ba75346e691d753a978c72df
+  redistribution-address: 0x56e442f99cafd7c890c404c1f8c16d38a569e41a
+  staking-address: 0xc0332d319b73cfeed89511fe1a83add141bd6f12
   tracing-enable: true
   tracing-service-name: "bee-staging-$NAMESPACE"
   tracing-endpoint: "tempo-tempo-distributed-distributor.observability:6831"

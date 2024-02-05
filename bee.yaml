@@ -31,7 +31,7 @@ apps:
     set:
       image.repository: ethereum/client-go
       image.tag: v1.10.18
-      imageSetupContract.tag: 0.9.9
+      imageSetupContract.tag: 2.0.7
       ingress.hosts[0].host: "geth-swap.$NAMESPACE.testnet.internal"
     wait: true
   bootnode:
@@ -42,10 +42,10 @@ apps:
     set:
       nameOverride: "bootnode"
       replicaCount: 1
-      beeConfig.bootnode-mode: true
-      beeConfig.full-node: true
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      beeConfig.bootnode-mode: true
+      beeConfig.full-node: true
       beeConfig.blockchain-rpc-endpoint: http://geth-geth-swap:8545
       libp2pSettings.enabled: true
     wait: true
@@ -61,6 +61,7 @@ apps:
       replicaCount: 10
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      beeConfig.full-node: true
       beeConfig.blockchain-rpc-endpoint: "http://geth-geth-swap:8545"
       beeConfig.bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
     wait: false
