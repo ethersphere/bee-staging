@@ -58,7 +58,7 @@ apps:
     chart: "ethersphere/bee"
     priority: -5
     set:
-      replicaCount: 3
+      replicaCount: 10
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       beeConfig.full-node: true
