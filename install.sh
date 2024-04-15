@@ -15,6 +15,6 @@ echo "INSTALLING BEE NODES"
 helmsman -apply -subst-env-values -f bee.yaml -target geth
 
 # wait for hardhat setup contracts job to complete
-kubectl wait --for=condition=complete job/geth-swap-setupcontracts -n vandot --timeout=1200s
+kubectl wait --for=condition=complete job/geth-swap-setupcontracts -n "$NAMESPACE" --timeout=1200s
 
 helmsman -apply -subst-env-values -f bee.yaml
