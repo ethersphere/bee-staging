@@ -22,16 +22,17 @@ apps:
     name: geth
     enabled: true
     namespace: $NAMESPACE
-    version: "0.4.1"
+    version: "0.5.0"
     chart: "ethersphere/geth-swap"
     description: "Geth"
     priority: -10
     valuesFiles:
       - "./helm-values/geth-swap.yaml"
     set:
+      fullnameOverride: "geth-swap"
       image.repository: ethereum/client-go
       image.tag: v1.10.18
-      imageSetupContract.tag: 2.0.7
+      imageSetupContract.tag: 0.8.3
       ingress.hosts[0].host: "geth-swap.$NAMESPACE.testnet.internal"
     wait: true
   bootnode:
@@ -46,7 +47,7 @@ apps:
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       beeConfig.bootnode-mode: true
       beeConfig.full-node: true
-      beeConfig.blockchain-rpc-endpoint: http://geth-geth-swap:8545
+      beeConfig.blockchain-rpc-endpoint: http://geth-swap:8545
       libp2pSettings.enabled: true
     wait: true
   bee:
@@ -62,7 +63,7 @@ apps:
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       beeConfig.full-node: true
-      beeConfig.blockchain-rpc-endpoint: "http://geth-geth-swap:8545"
+      beeConfig.blockchain-rpc-endpoint: "http://geth-swap:8545"
       beeConfig.bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
     wait: false
   ethproxy:
