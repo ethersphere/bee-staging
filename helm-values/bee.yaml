@@ -65,8 +65,8 @@ beeConfig:
   payment-threshold: 108000000
   postage-stamp-start-block: 1
   postage-stamp-address: 0x657241f4494A2F15Ba75346E691d753A978C72Df
-  price-oracle-address: 0x565AE92c069b33cDa40ac2582ab532B383Ea4fc8
-  swap-factory-address: 0x0c33C7EbD26ec86Ae5a385bF9C29eE1024BFf687
+  price-oracle-address: 0xfC716b024a84585FaA0999fCd4B17638AE719805
+  swap-factory-address: 0x6E1467674133Bbf5BDBe66863b34cbb0347CCB02
   redistribution-address: 0x09Ad42a7d020244920309FfA14EA376dd2D3b7d5
   staking-address: 0xfc28330f1ecE0ef2371B724E0D19c1EE60B728b2
   swap-enable: true
