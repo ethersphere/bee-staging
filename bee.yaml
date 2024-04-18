@@ -32,7 +32,7 @@ apps:
       fullnameOverride: "geth-swap"
       image.repository: ethereum/client-go
       image.tag: v1.10.18
-      imageSetupContract.tag: 0.8.4
+      imageSetupContract.tag: 0.8.5
       ingress.hosts[0].host: "geth-swap.$NAMESPACE.testnet.internal"
     wait: true
   bootnode:
