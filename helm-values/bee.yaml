@@ -78,7 +78,7 @@ beeConfig:
   tracing-enable: true
   tracing-service-name: "bee-staging-$NAMESPACE"
   tracing-endpoint: "tempo-tempo-distributed-distributor.observability:6831"
-  swap-initial-deposit: 500000000000000000
+  swap-initial-deposit: 50000000000000000
   verbosity: 5
   welcome-message: "Welcome to the Swarm, this is a test cluster running in $NAMESPACE namespace!"
 
