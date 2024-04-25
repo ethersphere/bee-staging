@@ -1,0 +1,2 @@
+probesEnable: false
+beeCommand: ["bee", "db", "nuke", "--data-dir=/home/bee/.bee", "--sleep-after=10m"]

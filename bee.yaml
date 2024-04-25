@@ -13,6 +13,7 @@ appsTemplates:
     namespace: $NAMESPACE
     chart: "ethersphere/bee"
     version: "0.14.4"
+    priority: -5
     valuesFiles:
       - "./helm-values/bee.yaml"
     timeout: 1800
@@ -42,29 +43,107 @@ apps:
     priority: -9
     set:
       nameOverride: "bootnode"
-      replicaCount: 1
-      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       beeConfig.bootnode-mode: true
-      beeConfig.full-node: true
-      beeConfig.blockchain-rpc-endpoint: http://geth-swap:8545
       libp2pSettings.enabled: true
     wait: true
-  bee:
+  bee-0:
     <<: *beeTemplate
-    name: bee
+    name: bee-0
     enabled: true
-    namespace: $NAMESPACE
     description: "Bee"
-    chart: "ethersphere/bee"
-    priority: -5
-    set:
-      replicaCount: 10
-      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      beeConfig.full-node: true
-      beeConfig.blockchain-rpc-endpoint: "http://geth-swap:8545"
-      beeConfig.bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-1:
+    <<: *beeTemplate
+    name: bee-1
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-2:
+    <<: *beeTemplate
+    name: bee-2
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-3:
+    <<: *beeTemplate
+    name: bee-3
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-4:
+    <<: *beeTemplate
+    name: bee-4
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-5:
+    <<: *beeTemplate
+    name: bee-5
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-6:
+    <<: *beeTemplate
+    name: bee-6
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-7:
+    <<: *beeTemplate
+    name: bee-7
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-8:
+    <<: *beeTemplate
+    name: bee-8
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-9:
+    <<: *beeTemplate
+    name: bee-9
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
+    wait: false
+  bee-10:
+    <<: *beeTemplate
+    name: bee-10
+    enabled: true
+    description: "Bee"
+    # valuesFiles:
+    #   - "./helm-values/bee.yaml"
+    #   - "./helm-values/command.yaml"
     wait: false
   ethproxy:
     name: ethproxy
