@@ -3,10 +3,32 @@ geth:
     clique:
       period: 1
 
-gethCommand: ["geth", "--http", "--http.addr", "'0.0.0.0'", "--nodiscover", "--allow-insecure-unlock", "--http.api", "'eth,net,personal,web3'", "--http.vhosts", "'*'", "--ws", "--ws.addr", "'0.0.0.0'", "--ws.api", "'eth,net,personal,web3'", "--unlock=62cab2b3b55f341f10348720ca18063cdb779ad5", "--password=/dev/null", "--mine", "--lightkdf", "--syncmode=full", "--cache=512", "--rpc.txfeecap=0", "--verbosity=5"]
-
-nodeSelector:
-  node-group: private
+gethCommand:
+  [
+    "geth",
+    "--http",
+    "--http.addr",
+    "'0.0.0.0'",
+    "--nodiscover",
+    "--allow-insecure-unlock",
+    "--http.api",
+    "'eth,net,personal,web3'",
+    "--http.vhosts",
+    "'*'",
+    "--ws",
+    "--ws.addr",
+    "'0.0.0.0'",
+    "--ws.api",
+    "'eth,net,personal,web3'",
+    "--unlock=62cab2b3b55f341f10348720ca18063cdb779ad5",
+    "--password=/dev/null",
+    "--mine",
+    "--lightkdf",
+    "--syncmode=full",
+    "--cache=512",
+    "--rpc.txfeecap=0",
+    "--verbosity=5",
+  ]
 
 serviceAccount:
   create: true
@@ -14,7 +36,9 @@ serviceAccount:
 persistence:
   enabled: true
   size: 20Gi
-  storageClass: gp2
+  storageClass: local-storage
+  accessModes:
+    - ReadWriteOnce
 
 resources:
   limits:
@@ -26,10 +50,12 @@ resources:
 
 ingress:
   enabled: true
+  class: nginx
   annotations:
-    kubernetes.io/ingress.class: nginx-internal
+    spec.ingressClassName: nginx
+    nginx.ingress.kubernetes.io/whitelist-source-range: "109.93.108.239/32"
   hosts:
-    - host: testnet.internal
+    - host: geth-swap.$NAMESPACE.testnet.ethswarm.org
       paths:
         - /
 

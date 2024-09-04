@@ -14,26 +14,26 @@ updateStrategy:
   type: RollingUpdate
 
 ingress:
-  enabled: true
+  enabled: false
   annotations:
-    kubernetes.io/ingress.class: nginx-internal
+    spec.ingressClassName: nginx
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
-    - domain: $NAMESPACE.testnet.internal
+    - domain: $NAMESPACE.ethswarm.org
       paths:
         - /
 
 ingressDebug:
-  enabled: true
+  enabled: false
   annotations:
-    kubernetes.io/ingress.class: nginx-internal
+    spec.ingressClassName: nginx
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
-    - domain: $NAMESPACE.testnet.internal
+    - domain: $NAMESPACE.ethswarm.org
       paths:
         - /
 
@@ -48,19 +48,18 @@ resources:
 persistence:
   enabled: true
   size: 20Gi
-  storageClass: gp2
+  storageClass: local-storage
+  accessModes:
+    - ReadWriteOnce
 
 imagePullSecrets:
   - name: regcred
 
-nodeSelector:
-  node-group: private
-
 beeConfig:
   allow-private-cidrs: true
   block-time: 1
-  blockchain-rpc-endpoint: http://geth-swap:8545
-  bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  blockchain-rpc-endpoint: http://geth-swap.$NAMESPACE.svc.swarm1.local:8545
+  bootnode: "/dns4/bootnode-0-headless.$NAMESPACE.svc.swarm1.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
   cache-capacity: 25000
   debug-api-enable: true
   full-node: true
@@ -88,7 +87,6 @@ libp2pSettings:
   enabled: false
   libp2pKeys:
     bootnode-0: '{"address":"28678fe31f09f722d53e77ca2395569f19959fa5","crypto":{"cipher":"aes-128-ctr","ciphertext":"0ff319684c4f8decf9c998047febe3417cfc45832b8bb62fd818183d54cf5d0183bfa021ed95addce3b33e83ce7ee73e926f00eea8241d96b349266a4d299829d3d22db0d536315b52b34db4a6778bfd3ce7631ad7256ea0bb9c50abea9de35d740b6fdc50caf929b1d19494690d9ed649105d02c14f5ec49d","cipherparams":{"iv":"4e9a50fb5852b5e61964f696be78066b"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"4d513e81647e4150bb648ed8d2dda28d460802336bf24d620119eac66ae0c0c4"},"mac":"9ae71db96e5ddc1c214538d42082212bbbe53aeac09fcc3e3a8eff815648331e"},"version":3,"id":"ae3bc991-d89f-405a-9e6a-60e27347e22d"}'
-
 
 swarmSettings:
   enabled: true

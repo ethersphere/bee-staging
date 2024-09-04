@@ -16,7 +16,7 @@ ingress:
   enabled: true
   class: nginx-internal
   hosts:
-    - host: ethproxy.$NAMESPACE.testnet.internal
+    - host: ethproxy.$NAMESPACE.ethswarm.org
       paths:
         - /
 
