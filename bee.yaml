@@ -33,7 +33,7 @@ apps:
       fullnameOverride: "geth-swap"
       image.repository: ethereum/client-go
       image.tag: v1.10.18
-      imageSetupContract.tag: 0.8.5
+      imageSetupContract.tag: 0.9.1
       ingress.hosts[0].host: "geth-swap.$NAMESPACE.testnet.ethswarm.org"
     wait: true
   bootnode:

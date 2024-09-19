@@ -53,7 +53,7 @@ ingress:
   class: nginx
   annotations:
     spec.ingressClassName: nginx
-    nginx.ingress.kubernetes.io/whitelist-source-range: "109.93.108.239/32"
+    nginx.ingress.kubernetes.io/whitelist-source-range: "109.93.45.225/32" #curl ifconfig.me/ip
   hosts:
     - host: geth-swap.$NAMESPACE.testnet.ethswarm.org
       paths:

@@ -13,13 +13,8 @@ export TAG="${TAG:-latest}"
 
 echo "INSTALLING BEE NODES"
 
-$env:NAMESPACE="bee-playground"
-$env:REPO="ethersphere/bee"
-$env:TAG="latest"
-
 helmsman -apply -subst-env-values -f bee.yaml -target geth
 
 # wait for hardhat setup contracts job to complete
 kubectl wait --for=condition=complete job/geth-swap-setupcontracts -n "$NAMESPACE" --timeout=1200s
-kubectl wait --for=condition=complete job/geth-swap-setupcontracts -n $env:NAMESPACE --timeout=1200s
 helmsman -apply -subst-env-values -f bee.yaml
