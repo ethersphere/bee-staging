@@ -1,5 +1,5 @@
-imagePullSecrets:
-  - name: regcred
+# imagePullSecrets:
+#   - name: regcred
 
 image:
   repository: ethersphere/ethproxy
@@ -9,14 +9,14 @@ image:
 serviceAccount:
   create: true
 
-nodeSelector:
-  node-group: private
+# nodeSelector:
+#   node-group: private
 
 ingress:
   enabled: true
-  class: nginx-internal
+  class: nginx
   hosts:
-    - host: ethproxy.$NAMESPACE.testnet.internal
+    - host: ethproxy.$NAMESPACE.testnet.ethswarm.org
       paths:
         - /
 
