@@ -12,7 +12,7 @@ appsTemplates:
     enabled: true
     namespace: $NAMESPACE
     chart: "ethersphere/bee"
-    version: "0.14.4"
+    version: "0.16.3"
     priority: -5
     valuesFiles:
       - "./helm-values/bee.yaml"
@@ -33,7 +33,7 @@ apps:
       fullnameOverride: "geth-swap"
       image.repository: ethereum/client-go
       image.tag: v1.10.18
-      imageSetupContract.tag: 0.8.5
+      imageSetupContract.tag: 0.9.2
       ingress.hosts[0].host: "geth-swap.$NAMESPACE.testnet.internal"
     wait: true
   bootnode:
