@@ -14,7 +14,7 @@ We're using [helmsman](https://github.com/Praqma/helmsman) to manage the deploym
 
 ## Installing
 
-To install Bee cluster that consits of Bee bootnode and multiple Bee nodes execute following command:
+To install Bee cluster that consists of Bee bootnode and multiple Bee nodes execute following command:
 
 ```bash
 NAMESPACE=test ./install.sh
@@ -66,5 +66,10 @@ See Bee Helm chart's [values.yaml](https://github.com/ethersphere/helm/blob/mast
 To uninstall previously deployed Bee cluster execute following command:
 
 ```bash
-NAMESPACE=test ./uninstall.sh 
+NAMESPACE=test ./uninstall.sh
 ```
+
+## Maintainers
+
+- [Bee](https://github.com/orgs/ethersphere/teams/bee) team
+- [DevOps](https://github.com/orgs/ethersphere/teams/devops) team
