@@ -28,6 +28,28 @@ NAMESPACE=bee-playground REPO=ethersphere/bee TAG=latest ./install.sh
 
 It will execute bee.yaml Helmsman DSF file.
 
+### Installing geth only
+
+The script always deploys the `geth-swap` chain first and waits for the `geth-swap-setupcontracts` job to deploy the swap contracts, then installs the bootnode and Bee nodes. To stop after the chain and contracts are ready — useful when you only need a local chain to point other nodes at — set `GETH_ONLY`:
+
+```bash
+NAMESPACE=bee-playground GETH_ONLY=true ./install.sh
+```
+
+The Bee nodes can be added later by re-running the script without `GETH_ONLY`.
+
+### Environment variables
+
+| Variable | Required | Default | Description |
+| --- | --- | --- | --- |
+| `NAMESPACE` | yes | — | Kubernetes namespace to deploy into |
+| `REPO` | no | `ethersphere/bee` | Bee image repository |
+| `TAG` | no | `latest` | Bee image tag |
+| `IMAGE_SETUP_TAG` | no | `0.9.4` | `ethersphere/bee-localchain` tag used by the `geth-swap-setupcontracts` job |
+| `GETH_ONLY` | no | `false` | When `true`, deploy only geth and the swap contracts, skipping the bootnode and Bee nodes |
+
+**Note:** Helmsman does not support shell-style default values in the DSF file. `${VAR:-default}` is parsed as a variable literally named `VAR:-default`, which never resolves, so it is substituted with an empty string — for example `imageSetupContract.tag: ${IMAGE_SETUP_TAG:-0.9.4}` yields the invalid image `ethersphere/bee-localchain:` and the job pod fails with `InvalidImageName`. Defaults are therefore set in `install.sh` and referenced as plain `$VAR` in `bee.yaml`.
+
 Helmsman DSF file uses official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and it's deployed into specified Kubernetes namespace.
 
 **Note:** Everyone should update name of the namespace to avoid overlapping with others if working on the same Kubernetes cluster.
