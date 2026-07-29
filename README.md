@@ -50,6 +50,8 @@ The Bee nodes can be added later by re-running the script without `GETH_ONLY`.
 
 **Note:** Helmsman does not support shell-style default values in the DSF file. `${VAR:-default}` is parsed as a variable literally named `VAR:-default`, which never resolves, so it is substituted with an empty string — for example `imageSetupContract.tag: ${IMAGE_SETUP_TAG:-0.9.4}` yields the invalid image `ethersphere/bee-localchain:` and the job pod fails with `InvalidImageName`. Defaults are therefore set in `install.sh` and referenced as plain `$VAR` in `bee.yaml`.
 
+Helmsman validates every variable referenced in the DSF on **all** operations, including `-destroy`. `uninstall.sh` therefore sets `IMAGE_SETUP_TAG` as well, even though the value has no effect when destroying releases — leaving it unset aborts with `$IMAGE_SETUP_TAG is used as an env variable but is currently unset`.
+
 Helmsman DSF file uses official [Bee Helm Chart](https://github.com/ethersphere/helm/tree/master/charts/bee), and it's deployed into specified Kubernetes namespace.
 
 **Note:** Everyone should update name of the namespace to avoid overlapping with others if working on the same Kubernetes cluster.
