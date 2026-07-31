@@ -50,9 +50,7 @@ resources:
 
 ingress:
   enabled: true
-  class: nginx
-  annotations:
-    spec.ingressClassName: nginx
+  class: nginx-oss
   hosts:
     - host: geth-swap.$NAMESPACE.testnet.internal
       paths:

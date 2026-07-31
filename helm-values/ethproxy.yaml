@@ -8,7 +8,7 @@ serviceAccount:
 
 ingress:
   enabled: true
-  class: nginx
+  class: nginx-oss
   hosts:
     - host: ethproxy.$NAMESPACE.testnet.internal
       paths:
